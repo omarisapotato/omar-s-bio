@@ -12,14 +12,13 @@ body {
     width: 80vw;
     height: 80vh;
     background: linear-gradient(to bottom right, #00154A 50%, #BDB5B3 50%);
-    border: 5px solid rgb(0, 0, 0);
-    border-radius: 22px;
+    border: 0.3125rem solid rgb(0, 0, 0);
+    border-radius: 1.375rem;
     box-shadow: 0.265rem 0.265rem 0rem 0rem #000000;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 
 .container-content {
     display: flex;
@@ -30,22 +29,21 @@ body {
 .container-card {
     display: flex;
     flex-direction: column;
-    flex-wrap: auto;
     width: 75%;
     height: 80%;
 }
 
 .container-content-pfp {
-    height: 122px;
-    width: 122px;
+    height: 7.625rem;
+    width: 7.625rem;
     border-radius: 50%;
-    padding: 7px;
-    border: 7px solid black;
+    padding: 0.4375rem;
+    border: 0.4375rem solid black;
 }
 
 .container-content-name {
     color: white;
-    font-size: 50px;
+    font-size: 3.125rem;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -54,16 +52,15 @@ body {
     letter-spacing: 0.025em;
     font-family: Inter, sans-serif;
     font-weight: 300;
-    margin: 25px 0 15px 0;
+    margin: 1.5625rem 0 0.9375rem 0;
 }
 
 button {
-    border: 2px solid black;
-    border-radius: 5px;
+    border: 0.125rem solid black;
+    border-radius: 0.3125rem;
     box-shadow: 0.1em 0.1em 0.1em 0.1em black;
-    width: 120px;
-    height: 50px;
-    transition: scale(1);
+    width: 7.5rem;
+    height: 3.125rem;
     transition-duration: 0.5s;
     animation-duration: 0.5s;
     font-weight: 750;
@@ -71,7 +68,7 @@ button {
 }
 
 ul {
-    padding: 0 0 0 0;
+    padding: 0;
     display: flex;
     flex-direction: row;
     gap: 1em;
@@ -90,7 +87,6 @@ ul {
     background-color: #FF8FCF;
 }
 
-
 .container-content-cat:hover {
     background-color: #af608d;
     transform: scale(1.2);
@@ -101,8 +97,8 @@ ul {
     width: 80%;
     height: auto;
     background: linear-gradient(to bottom right, #00154A 50%, #BDB5B3 50%);
-    border: 5px solid rgb(0, 0, 0);
-    border-radius: 22px;
+    border: 0.3125rem solid rgb(0, 0, 0);
+    border-radius: 1.375rem;
     box-shadow: 0.265rem 0.265rem 0rem 0rem #000000;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -112,15 +108,14 @@ ul {
     "armbite armbite greyarmbite fallingarmbite"
     "dragonarmbite dragonarmbite dragonarmbite dragonarmbite"
     "home-button home-button home-button home-button";
-    gap: 10px;
-    padding: 40px 160px 40px 160px;
-    margin: 50px 70px 50px 70px;
+    gap: 0.625rem;
+    padding: 2.5rem 10rem 2.5rem 10rem;
+    margin: 3.125rem 4.375rem;
     box-sizing: border-box;
 }
 
-
 .container-cat-sleepychair {
-    border-top-left-radius: 15px;
+    border-top-left-radius: 0.9375rem;
     object-fit: cover;
     grid-area: sleepychair;
     height: 100%;
@@ -135,7 +130,7 @@ ul {
 }
 
 .container-cat-starewitharm {
-    border-top-right-radius: 15px;
+    border-top-right-radius: 0.9375rem;
     object-fit: cover;
     grid-area: starewitharm;
     height: 100%;
@@ -168,20 +163,18 @@ ul {
     object-fit: cover;
     height: 100%;
     width: 100%;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 0.9375rem;
+    border-bottom-right-radius: 0.9375rem;
 }
 
 .container-content-home {
     background-color: #FF8FCF;
     grid-area: home-button;
-    margin-top: 50px;
+    margin-top: 3.125rem;
 }
 
 .container-content-home:hover {
     background-color: #af608d;
-    grid-area: home-button;
-    margin-top: 50px;
+    margin-top: 3.125rem;
     transform: scale(1.2);
 }
-
