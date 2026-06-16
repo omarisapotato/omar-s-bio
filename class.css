@@ -192,15 +192,11 @@ ul {
   text-decoration: none;
   text-wrap: nowrap;
 
-  /* Spacing & Sizing */
-  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
 
   /* Borders & Background */
   cursor: pointer;
-  user-select: none;
-  background-color: var(--bs-btn-bg);
-  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
-  border-radius: var(--bs-btn-border-radius);
+  background-color: #0d6efd
+  border-radius: 5px;
 
   /* Interactive States & Transitions */
   transition: color 0.15s ease-in-out, 
