@@ -195,12 +195,6 @@ ul {
 
   /* Borders & Background */
   cursor: pointer;
-  background-color: #0d6efd
+  background-color: #0d6efd;
   border-radius: 5px;
-
-  /* Interactive States & Transitions */
-  transition: color 0.15s ease-in-out, 
-              background-color 0.15s ease-in-out, 
-              border-color 0.15s ease-in-out, 
-              box-shadow 0.15s ease-in-out;
 }
