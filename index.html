@@ -12,12 +12,17 @@
         <div class="container-card">
             <img src="test.jpg" class="container-content-pfp">
             <span class="container-content-name">Omar</span>
-            <span class="container-content-bio">Hi, I'm Omar, I'm 15, like cats, aot, and other stuff. <br> <br> Writer @ Invomagic.com
-            </span><br><button class="btn">Heehee</button>
+            <span class="container-content-bio" id="bio">Hi, I'm Omar, I'm 15, like cats, aot, and other stuff. <br> <br> Writer @ Invomagic.com
+            </span><br><button class="btn" id="test">Heehee</button>
             <ul>
                 <a href="mailto:omar.writer@invomagic.com"><button class="container-content-email">Send me an Email! <i class="fa-solid fa-envelope"></i></button></a>
                 <a href="cat.html"><button class="container-content-cat">Pictures of my cat :3 <i class="fa-solid fa-cat"></i></button></a>
             </ul>
         </div>
     </div>
+    <script>
+        document.getElementById("test").addEventListener("click", function() {
+            document.getElementById("bio").innerHTML = prompt("what to change the bio to")
+        })
+    </script>
 </body>
