@@ -1,0 +1,7 @@
+.container {
+    background-color: green;
+    border-radius: 5px;
+    border-color: darkgreen;
+    width: 50vw;
+    height: 80%;
+}

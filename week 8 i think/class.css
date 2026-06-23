@@ -1,0 +1,22 @@
+.container {
+    background-color: green;
+    border-radius: 5px;
+    border-color: darkgreen;
+    width: 50vw;
+    height: 80%;
+}
+
+.button {
+    border-radius: 5px;
+    background-color: lightblue;
+    box-shadow: none;
+    margin-top: 20px;
+    width: 30vw;
+    height: 10vh;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: center;
+
+}

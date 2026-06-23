@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Card Generator</title>
+        <link href="class.css" rel="stylesheet">
+    </head>
+  <body style="background-color: grey;">
+    <div class="flexbox">
+    <input type="number" id="grade"><br>
+    </div>
+    <div class="flexbox">
+    <button onclick="giveGrade()" class="button">Enter your grade and click me.</button>
+    </div>
+
+    <script>
+        function giveGrade() {
+        var x = document.getElementById('grade').value;
+        if (isNaN(x) || x < 0 || x > 100) {
+            console.log('Please Enter a valid number between 1 and 100')
+        } else {
+        if (x > 50) {
+            if (x >= 85) {
+                console.log('Excellent');
+            }
+            else if (x >= 70) {
+                console.log('Very Good');
+            }
+            else if (x >= 60) {
+                console.log('Good');
+            }  
+        }
+        else {
+                console.log('Fail')
+            }
+    }
+    }
+    </script>
+  </body>
+</html>
