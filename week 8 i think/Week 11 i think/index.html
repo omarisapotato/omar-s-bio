@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="action()">Click Me</button>
+    <p id="welcome message"></p>
+    <script>
+        let userName = "Ahmed";
+        let age = 25;
+        let balance = 500;
+        let isMember = true;
+        let transactions =  [50, 200, 30, 500, 15, 120]
+        const welcMessage = document.getElementById('welcome message');
+        function refreshWelcomeMessage() {
+        const userLevel = age >= 18 ? 'adult' : 'minor';
+        const membershipType = isMember ? 'Premium' : 'Standard';
+        const balanceLevel = balance > 1000 ? 'High Balance' : (balance >= 200 ? 'Normal Balance' : 'Low Balance');
+        welcMessage.innerText = `Hello ${userName}, you are an ${userLevel} with a ${membershipType} membership and your balance is classified as ${balanceLevel}.`
+    }
+        refreshWelcomeMessage();
+
+
+        function action() {
+        const userChoice = prompt('What action would you like to do?');
+        if (userChoice == 'deposit' || userChoice == 'withdraw') {
+            var amount = prompt('how much money would you like to deposit/withdraw?');
+        }
+        switch (userChoice) {
+            case 'deposit':
+                console.log('Processing deposit...');
+                balance += Number(amount);
+                alert(`Your new balance is ${balance}`)
+                refreshWelcomeMessage();
+                break;
+            case 'withdraw':
+                console.log('Processing withdrawal...');
+                if (balance > amount) {
+                    balance -= amount;
+                    alert(`Withdrew ${amount} from your account, current balance is ${balance}`)
+                    refreshWelcomeMessage();
+                    break;
+                } else {
+                    alert('You do not have enough balance to withdraw this amount')
+                }
+                break;
+            case 'balance':
+                console.log('Displaying balance...');
+                alert(`You currently have ${balance}`)
+                break;
+
+            case 'transactions':
+                let index = 0;
+                let largeTransactionIndex = 0;
+                for (transaction of transactions) {
+                    index += 1
+                    alert(`Transaction Amount: ${transaction}, Transaction Number: ${index}`);
+                    if (largeTransactionIndex > 100) {
+                        largeTransactionIndex += 1;
+                    }
+
+                }
+                alert(`Your total transactions: ${index}, Your total large transactions: ${largeTransactionIndex}`)
+                break;
+            
+            default:
+                alert('Unknown action.');
+        }
+    }
+
+
+
+    </script>
+</body>
+</html>

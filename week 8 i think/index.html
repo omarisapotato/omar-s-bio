@@ -5,35 +5,21 @@
         <link href="class.css" rel="stylesheet">
     </head>
   <body style="background-color: grey;">
-    <div class="flexbox">
-    <input type="number" id="grade"><br>
-    </div>
-    <div class="flexbox">
-    <button onclick="giveGrade()" class="button">Enter your grade and click me.</button>
-    </div>
-
+    <button class="button" id="print10" onclick="printten()">Click to print numbers from 1 to 10!</button>
+    <button class="button" id="password" onclick="password()">Click to enter the password.</button>
     <script>
-        function giveGrade() {
-        var x = document.getElementById('grade').value;
-        if (isNaN(x) || x < 0 || x > 100) {
-            console.log('Please Enter a valid number between 1 and 100')
-        } else {
-        if (x > 50) {
-            if (x >= 85) {
-                console.log('Excellent');
+        function printten() {
+            for (let i=0; i < 11; i++) {
+                console.log(i)
             }
-            else if (x >= 70) {
-                console.log('Very Good');
-            }
-            else if (x >= 60) {
-                console.log('Good');
-            }  
         }
-        else {
-                console.log('Fail')
-            }
-    }
-    }
+        function password() {
+            let password = prompt('what is the correct password');
+            do {
+                let password = prompt('what is the correct password');
+            } while (password !== 'abc123') 
+            console.log('correct')
+        }
     </script>
   </body>
 </html>
