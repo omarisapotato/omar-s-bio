@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CubMart – Shop Better</title>
+    <!-- Bootstrap + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- separate CSS (keep your styles) -->
+    <link rel="stylesheet" href="class.css">
+</head>
+<body>
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar">
+        <button class="btn btn-primary navbar-toggle-visibility" onclick="toggleNavbarVisibility()">☰</button>
+        <ul class="navbar-contents" id="contents">
+            <li><a href="index.html" class="navbar-item-main-text"><i class="fa-solid fa-shop"></i> CubMart</a></li>
+            <li class="shop-categories-dropdown">
+                Categories
+                <ul class="dropdown-list">
+                    <li><a href="#spotlight" style="color: white;">Spotlight</a></li>
+                    <li><a href="#audio" style="color: white;">Audio</a></li>
+                    <li><a href="#pcs" style="color: white;">PCs</a></li>
+                    <li><a href="#laptops" style="color: white;">Laptops</a></li>
+                    <li><a href="#storage" style="color: white;">Storage</a></li>
+                    <li><a href="#accesories" style="color: white;">Accessories</a></li>
+                </ul>
+            </li>
+            <li><a href="#reviews" style="text-decoration: none; color: white;">Customer Reviews</a></li>
+            <li><a href="#contact" style="text-decoration: none; color: white;">Contact Us</a></li>
+            <li><a href="#newsletter" style="text-decoration: none; color: white;">Company Newsletter</a></li>
+            <li><a href="#checkout" style="text-decoration: none; color: white;">Purchase Checkout</a></li>
+            <li><a href="#footer" style="text-decoration: none; color: white;">End of Page <i class="fa-solid fa-angles-down"></i></a></li>
+        </ul>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <div class="hero">
+        <i class="fa-solid fa-shop hero-section-image"></i>
+        <h1 class="hero-header">Shop better with CubMart</h1>
+        <p>Quality products, fast delivery, and amazing support.</p>
+        <a href="#audio" class="btn btn-primary btn-lg">Start Shopping Now!</a>
+        <h1 class="hero-header mt-4">Filter by Category</h1>
+        <button class="btn btn-primary btn-lg m-3" onclick="toggleFilter(event)">Filter</button>
+        <h1 class="hero-header">Order by Item Name</h1>
+        <button class="btn btn-primary btn-lg m-3" onclick="orderByPrompt(event)">Loop Order</button>
+    </div>
+
+    <!-- ============ WHY SHOP WITH US (header + cards) ============ -->
+    <h1 class="category-header-text" style="font-size: 2.8rem; text-align: center; margin-top: 2rem;">Why to shop with us ?</h1>
+    <div class="product-grid m-1">
+        <div class="col mb-3 mt-2"><div class="card card-main p-2 h-100"><h5 class="card-title text-white">Quick Delivery</h5><p class="card-text text-white">Your items will always get delivered fast and on-time.</p></div></div>
+        <div class="col mb-3 mt-2"><div class="card card-main p-2 h-100"><h5 class="card-title text-white">Refund Policy</h5><p class="card-text text-white">If the item doesn't fit the description, is damaged, or you don't like it, you can refund it for free within 2 weeks of purchasing aslong as there isn't major damage caused to it.</p></div></div>
+        <div class="col mb-3 mt-2"><div class="card card-main p-2 h-100"><h5 class="card-title text-white">Items in Stock</h5><p class="card-text text-white">We update our stock very often, so items are rarely out of stock.</p></div></div>
+        <div class="col mb-3 mt-2"><div class="card card-main p-2 h-100"><h5 class="card-title text-white">Fair Prices</h5><p class="card-text text-white">Our products are fairly priced.</p></div></div>
+        <div class="col mb-3 mt-2"><div class="card card-main p-2 h-100"><h5 class="card-title text-white">Original Components</h5><p class="card-text text-white">Our products are original and not offbrand.</p></div></div>
+        <div class="col mb-3 mt-2"><div class="card card-main p-2 h-100"><h5 class="card-title text-white">Active Support</h5><p class="card-text text-white">You can contact our custom support any time of the day, and get relatively quick responses depending on the time of day.</p></div></div>
+    </div>
+
+    <!-- ============ CATEGORY SECTIONS (all products are hardcoded, no DOM) ============ -->
+    <!-- SPOTLIGHT -->
+    <h2 id="spotlight" class="category-header-text">⭐ Spotlight Items!</h2>
+    <div class="product-grid m-1" id="spotlight-category">
+        <!-- product 1 -->
+        <div class="card item spotlight"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs20ZIm3X68nMa3V4CFnP2O59czEs4ixbp7X5A8tGf1LmPbzRbHW6LCNV2&s=10" alt="Sony WH-1000XM5"><p class="item-text">Sony WH-1000XM5 Wireless Headphones<br>Price: 18500 EGP<br>Stock: 8<br><span class="badge bg-danger">On Sale!</span><br><b>Item Description: Industry-leading noise canceling with two processors and 8 microphones for exceptional sound quality and crystal-clear calls.</b></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Sony WH-1000XM5 Wireless Headphones-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Sony WH-1000XM5 Wireless Headphones-button-remove">Remove From Cart</button></div>
+        <!-- product 2 -->
+        <div class="card item spotlight"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM07NiR2F7PVor-7mK0_Re2YB0wveVY2P5NmvgD7Ivog&s=10" alt="Lenovo Legion Pro 7i"><p class="item-text">Lenovo Legion Pro 7i Gen 9<br>Price: 92000 EGP<br>Stock: 5<br><span class="badge bg-danger">Newly Added!</span><br><b>Item Description: High-performance gaming powerhouse with Intel Core i9, RTX 4080, and AI-tuned Legion Coldfront cooling.</b></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Lenovo Legion Pro 7i Gen 9-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Lenovo Legion Pro 7i Gen 9-button-remove">Remove From Cart</button></div>
+        <!-- product 3 -->
+        <div class="card item spotlight"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgLqT1xhTokJ-tpET1zc-1OmqqdShF4FmuatetOvfkQQ&s" alt="MacBook Pro M3"><p class="item-text">Apple MacBook Pro 14" M3 Pro<br>Price: 94500 EGP<br>Stock: 5<br><span class="badge bg-danger">Newly Added!</span><br><b>Item Description: Driven by the powerful M3 Pro chip, featuring a breathtaking Liquid Retina XDR display and up to 18 hours of battery life.</b></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Apple MacBook Pro 14&quot; M3 Pro-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Apple MacBook Pro 14&quot; M3 Pro-button-remove">Remove From Cart</button></div>
+        <!-- product 4 -->
+        <div class="card item spotlight"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMcqBBXek7A-lEfsLBN1NOqICLSP2Mc7dsRd6RK8XAqA&s=10" alt="Samsung Odyssey G7"><p class="item-text">Samsung Odyssey G7 32" 240Hz Gaming Monitor<br>Price: 28900 EGP<br>Stock: 6<br><span class="badge bg-danger">On Sale!</span><br><b>Item Description: 1000R curved gaming screen with QLED technology, 240Hz refresh rate, and 1ms response time for immersive gameplay.</b></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Samsung Odyssey G7 32&quot; 240Hz Gaming Monitor-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Samsung Odyssey G7 32&quot; 240Hz Gaming Monitor-button-remove">Remove From Cart</button></div>
+        <!-- product 5 -->
+        <div class="card item spotlight"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRifOUafsWekKX9GwaC3wUFUk6RPaFWsXCwc6AwSB2BNQ&s" alt="Samsung 990 PRO"><p class="item-text">Samsung 990 PRO 2TB NVMe SSD<br>Price: 8900 EGP<br>Stock: 15<br><span class="badge bg-danger">Newly Added!</span><br><b>Item Description: Blazing-fast PCIe 4.0 storage offering read speeds up to 7450 MB/s, ideal for heavy gaming and high-end video editing.</b></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Samsung 990 PRO 2TB NVMe SSD-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Samsung 990 PRO 2TB NVMe SSD-button-remove">Remove From Cart</button></div>
+        <!-- product 6 -->
+        <div class="card item spotlight"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyvscafTOMkaf2f9dpvAt-1MdUaxP5lLSBkC7t-UnHQA&s=10" alt="Logitech MX Master 3S"><p class="item-text">Logitech MX Master 3S Wireless Mouse<br>Price: 4800 EGP<br>Stock: 18<br><span class="badge bg-danger">On Sale!</span><br><b>Item Description: Iconic ergonomic productivity mouse featuring 8K DPI tracking on any surface and Quiet Click technology.</b></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Logitech MX Master 3S Wireless Mouse-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Logitech MX Master 3S Wireless Mouse-button-remove">Remove From Cart</button></div>
+    </div>
+
+    <!-- AUDIO -->
+    <h2 id="audio" class="category-header-text">🎧 Audio Items</h2>
+    <div class="product-grid m-1" id="audios-category">
+        <div class="card item"><img class="item-image" src="https://m.media-amazon.com/images/I/61kFL7ywsZS.jpg" alt="JBL Tune 510BT"><p class="item-text">JBL Tune 510BT<br>Price: 1299 EGP<br>Stock: 42<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="JBL Tune 510BT-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="JBL Tune 510BT-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbV0LROgkHBOuIzHz22AIzDhZPM-sCS0jA26jxpRyINQ&s=10" alt="Anker Soundcore Life Q20"><p class="item-text">Anker Soundcore Life Q20<br>Price: 2199 EGP<br>Stock: 15<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Anker Soundcore Life Q20-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Anker Soundcore Life Q20-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8KLPYXECY8lQvNxtZMvKQCUkk55qJcveP9Kny2_6RDQ&s=10" alt="Samsung Galaxy Buds FE"><p class="item-text">Samsung Galaxy Buds FE<br>Price: 2699 EGP<br>Stock: 25</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Samsung Galaxy Buds FE-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Samsung Galaxy Buds FE-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1WQWuUPkTxfJ4U-LCl7mqZg87moVurA_H9S0iP_9KUg&s=10" alt="Logitech G435"><p class="item-text">Logitech G435 Gaming Headset<br>Price: 1999 EGP<br>Stock: 30</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Logitech G435 Gaming Headset-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Logitech G435 Gaming Headset-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQir8SAaQ5NiD-jjnb8B_wHPcJPrCIEhKESXzuWyfQQ_g&s=10" alt="JBL Flip 6"><p class="item-text">JBL Flip 6<br>Price: 3599 EGP<br>Stock: 12<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="JBL Flip 6-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="JBL Flip 6-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJzeU42IcmoXBOa69arVvDc4mNZz_JpXCgweRo4ByYQQ&s=10" alt="Redmi Buds 4 Lite"><p class="item-text">Redmi Buds 4 Lite<br>Price: 699 EGP<br>Stock: 60<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Redmi Buds 4 Lite-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Redmi Buds 4 Lite-button-remove">Remove From Cart</button></div>
+    </div>
+
+    <!-- PCS -->
+    <h2 id="pcs" class="category-header-text">🖥️ PCs</h2>
+    <div class="product-grid m-1" id="pcs-category">
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJTCFhenUSrnGnru18bxmtqW4hRvjZbB6rRPK0ZiNtQ&s=10" alt="HP Pavilion Desktop"><p class="item-text">HP Pavilion Desktop TP01<br>Price: 18999 EGP<br>Stock: 8<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="HP Pavilion Desktop TP01-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="HP Pavilion Desktop TP01-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLnqhTvVeeUYwAvYL615RnO1gRG4TJDVLMpJFybKaRg&s=10" alt="Dell Inspiron Desktop"><p class="item-text">Dell Inspiron Desktop 3020<br>Price: 23500 EGP<br>Stock: 6</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Dell Inspiron Desktop 3020-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Dell Inspiron Desktop 3020-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuz04qZgSdnFjjLh-L-3n36tYagDHghkmcarTNnIXpzA&s=10" alt="Lenovo IdeaCentre 3"><p class="item-text">Lenovo IdeaCentre 3<br>Price: 16999 EGP<br>Stock: 10<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Lenovo IdeaCentre 3-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Lenovo IdeaCentre 3-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrHQUbV5AP0vYCP4HeOmPN7V1pQyb_RD4kwZGGy7Qaeg&s" alt="Apple Mac Mini M2"><p class="item-text">Apple Mac Mini M2<br>Price: 39999 EGP<br>Stock: 4<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Apple Mac Mini M2-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Apple Mac Mini M2-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqRNHAkmIHa5mzavh_FEU2xDZve3AKjGgjvIHIadMO9w&s=10" alt="ASUS ROG Strix G35"><p class="item-text">ASUS ROG Strix G35<br>Price: 65999 EGP<br>Stock: 3</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="ASUS ROG Strix G35-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="ASUS ROG Strix G35-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL4KZTYx1C_8YxssSzg8j8WB3trI4YV7bFItrEOwco6Q&s=10" alt="Acer Aspire TC"><p class="item-text">Acer Aspire TC<br>Price: 14500 EGP<br>Stock: 12<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Acer Aspire TC-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Acer Aspire TC-button-remove">Remove From Cart</button></div>
+    </div>
+
+    <!-- LAPTOPS -->
+    <h2 id="laptops" class="category-header-text">💻 Laptops</h2>
+    <div class="product-grid m-1" id="laptops-category">
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3EiDLGCSlOpLL6fFF3REezjESTeiXq00XzT8S0H4AKw&s=10" alt="Lenovo IdeaPad Slim 3"><p class="item-text">Lenovo IdeaPad Slim 3<br>Price: 17999 EGP<br>Stock: 15<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Lenovo IdeaPad Slim 3-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Lenovo IdeaPad Slim 3-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmlzPLUA-YF5PCRCbM-7ODKHrtVONvyANUljysoST8ZQ&s=10" alt="HP Pavilion 15"><p class="item-text">HP Pavilion 15<br>Price: 22999 EGP<br>Stock: 10<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="HP Pavilion 15-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="HP Pavilion 15-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT68JnT4Lhm2263OgkCyRGHiZBaxKxCPMLhsA34GjBZEw&s" alt="Dell Inspiron 15"><p class="item-text">Dell Inspiron 15 3000<br>Price: 20999 EGP<br>Stock: 12</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Dell Inspiron 15 3000-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Dell Inspiron 15 3000-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL2TwhGwJv69vMRYAqzcI-bTJnb7bbjPbC-TOUe1QZhQ&s" alt="ASUS Vivobook 15"><p class="item-text">ASUS Vivobook 15<br>Price: 20999 EGP<br>Stock: 9<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="ASUS Vivobook 15-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="ASUS Vivobook 15-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5HMaDa8HY9mQOEXFHpgoy0bsP8L_HcuUrgEUIeOFvmg&s=10" alt="MacBook Air M2"><p class="item-text">Apple MacBook Air M2<br>Price: 54999 EGP<br>Stock: 5<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Apple MacBook Air M2-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Apple MacBook Air M2-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTux9dktxgkU-4NPPVxI61OVgnbxrz0TnX5GO_3WfSGtg&s" alt="Acer Aspire 5"><p class="item-text">Acer Aspire 5<br>Price: 19499 EGP<br>Stock: 11</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Acer Aspire 5-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Acer Aspire 5-button-remove">Remove From Cart</button></div>
+    </div>
+
+    <!-- STORAGE -->
+    <h2 id="storage" class="category-header-text">💾 Storage</h2>
+    <div class="product-grid m-1" id="storage-category">
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH9LU-uhRpNBYWnMTpMpX8JaGPN2plRawfF1tuYt9bWQ&s=10" alt="Samsung 970 EVO"><p class="item-text">Samsung 970 EVO Plus 1TB NVMe SSD<br>Price: 2799 EGP<br>Stock: 25<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Samsung 970 EVO Plus 1TB NVMe SSD-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Samsung 970 EVO Plus 1TB NVMe SSD-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfaCfv6oYvtMQqearvzsaiuIFMfrss3jsajL2_Tw173w&s=10" alt="WD Blue 1TB"><p class="item-text">Western Digital Blue 1TB HDD<br>Price: 1599 EGP<br>Stock: 35<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Western Digital Blue 1TB HDD-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Western Digital Blue 1TB HDD-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFWIh9XEKF60eVxyIwu5j_jiRbsTQuRn9v6_5Jcb5YEA&s=10" alt="Kingston A400"><p class="item-text">Kingston A400 480GB SSD<br>Price: 1199 EGP<br>Stock: 50</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Kingston A400 480GB SSD-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Kingston A400 480GB SSD-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj6jeP3qgQFs47JuYTmTMJgdLsavkLV4-lmPOsBGDSRQ&s=10" alt="SanDisk Extreme"><p class="item-text">SanDisk Extreme Portable SSD 1TB<br>Price: 3299 EGP<br>Stock: 14<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="SanDisk Extreme Portable SSD 1TB-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="SanDisk Extreme Portable SSD 1TB-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQywOhRql8HPDTUOkS6fJyToQZ9uDcc28VnNLYjH6s60A&s=10" alt="Seagate Backup Plus"><p class="item-text">Seagate Backup Plus 2TB External HDD<br>Price: 2399 EGP<br>Stock: 20<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Seagate Backup Plus 2TB External HDD-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Seagate Backup Plus 2TB External HDD-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkX6imZKjknEhsVleze8AWKFX4DRJjVx6CQCp1w7WQEQ&s=10" alt="Crucial MX500"><p class="item-text">Crucial MX500 500GB SSD<br>Price: 1799 EGP<br>Stock: 28</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Crucial MX500 500GB SSD-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Crucial MX500 500GB SSD-button-remove">Remove From Cart</button></div>
+    </div>
+
+    <!-- ACCESSORIES -->
+    <h2 id="accesories" class="category-header-text">⌨️ Accessories</h2>
+    <div class="product-grid m-1" id="accessories-category">
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCRIYHMHYaEb3bt_qK8flK_fnwEa4zdKFgmmWGcH1e4w&s=10" alt="Logitech MK270"><p class="item-text">Logitech MK270 Wireless Combo<br>Price: 999 EGP<br>Stock: 45<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Logitech MK270 Wireless Combo-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Logitech MK270 Wireless Combo-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnepeMT8GAbCiGZMQ2mhlEgVn8KV-2KJBj5K39l_j9Mg&s=10" alt="Anker PowerCore"><p class="item-text">Anker PowerCore 20000mAh Power Bank<br>Price: 1599 EGP<br>Stock: 30<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Anker PowerCore 20000mAh Power Bank-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Anker PowerCore 20000mAh Power Bank-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStHWgItYOu2ht3Wa6lZdn5OxlFTnI3_JPPXPPKr5HumA&s=10" alt="Razer DeathAdder"><p class="item-text">Razer DeathAdder Essential Mouse<br>Price: 949 EGP<br>Stock: 38</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Razer DeathAdder Essential Mouse-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Razer DeathAdder Essential Mouse-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNz-Bj5eY5Rrhoz9J9xeAZYD8jOgZTMeRkujH2zNBEsw&s=10" alt="Logitech C270"><p class="item-text">Logitech C270 HD Webcam<br>Price: 1099 EGP<br>Stock: 22<br><span class="badge bg-danger">On Sale!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Logitech C270 HD Webcam-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Logitech C270 HD Webcam-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYeO5gyotdn08DBy4VK53bnFZKVjyvmDX1QYNK2gH9Fg&s=10" alt="Anker USB-C Hub"><p class="item-text">Anker USB-C Hub 7-in-1<br>Price: 1899 EGP<br>Stock: 19</p><button class="btn btn-primary" onclick="addToCart(this.id)" id="Anker USB-C Hub 7-in-1-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="Anker USB-C Hub 7-in-1-button-remove">Remove From Cart</button></div>
+        <div class="card item"><img class="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR22CzDSLN2SZ7G10PpwRqRoTRhnn3mSFEynl8s4sTs_Q&s=10" alt="HyperX Alloy Core"><p class="item-text">HyperX Alloy Core RGB Keyboard<br>Price: 1699 EGP<br>Stock: 24<br><span class="badge bg-danger">Newly Added!</span></p><button class="btn btn-primary" onclick="addToCart(this.id)" id="HyperX Alloy Core RGB Keyboard-button">Add To Cart</button><button class="btn btn-danger" onclick="removeFromCart(this.id)" id="HyperX Alloy Core RGB Keyboard-button-remove">Remove From Cart</button></div>
+    </div>
+
+    <!-- ============ PROMOCODE ============ -->
+    <h2 class="category-header-text" id="promocodeEntry">Enter a promocode!</h2>
+    <form class="mb-3 support-form" onsubmit="applyPromocode(event)">
+        <label class="form-label item-text">Enter a promocode here (optional)</label>
+        <input type="text" class="form-control" id="promocode" placeholder="enter promocode here..." required/>
+        <button type="submit" class="btn btn-primary mt-1">Apply Promocode</button>
+    </form>
+
+    <!-- ============ CHECKOUT ============ -->
+    <h2 class="category-header-text" id="checkout">Checkout Purchase!</h2>
+    <form class="mb-3 support-form">
+        <label class="form-label text-white">Enter your email here</label>
+        <input type="email" class="form-control m-1" placeholder="e.g (email@gmail.com)" required/>
+        <label class="form-label text-white">Enter your first name here</label>
+        <input type="text" class="form-control m-1" placeholder="e.g (John)" required/>
+        <label class="form-label text-white">Enter your last name here</label>
+        <input type="text" class="form-control m-1" placeholder="e.g (Doe)" required/>
+        <label class="form-label text-white">Enter your address here</label>
+        <input type="text" class="form-control m-1" placeholder="e.g (El-Bahr Street, Tanta, Gharbia)" required/>
+        <label class="form-label text-white">Enter your Credit Card number here</label>
+        <input type="password" class="form-control m-1" placeholder="e.g (4012 0000 0000 0000)" required/>
+        <label class="form-label text-white">Enter your Credit Card CVV here</label>
+        <input type="password" class="form-control mb-3" placeholder="e.g (333)" required/>
+        <button type="button" class="btn btn-primary m-3" onclick="calculatePrice(event, true)">Calculate Price</button>
+        <button type="button" class="btn btn-primary m-3" onclick="listCartItems(event)">Display Items in Cart</button>
+        <button type="submit" class="btn btn-primary m-3" onclick="checkoutReceipt(event)">Finalize Purchase</button>
+        <button type="button" class="btn btn-primary m-3" onclick="repeatLastOrder(event)">Repeat Last Order</button>
+    </form>
+
+    <!-- ============ REVIEWS ============ -->
+    <h2 class="category-header-text" id="reviews">Customer Reviews!</h2>
+    <div class="reviews-container">
+        <div class="reviews-track">
+            <div class="card review p-2"><b>⭐⭐⭐⭐⭐ - (JBL Flip 6)</b><br>"Sound quality is way better than I expected for the price. Bass hits hard and battery lasts me a full weekend of use. Delivery was fast aswell."<br><small>>> review posted by "Ahmed Hasan"</small></div>
+            <div class="card review p-2"><b>⭐⭐⭐⭐ - (Lenovo IdeaPad Slim 3)</b><br>"Great laptop for university work, it's light, fast enough for Office and browsing, and the battery easily lasts through my classes. I do wish the screen was a bit brighter."<br><small>>> review posted by "Mariam Salem"</small></div>
+            <div class="card review p-2"><b>⭐⭐⭐⭐⭐ - (Anker PowerCore 20000mAh Power Bank)</b><br>"Charges my phone like 4 times before needing to be recharged. Great for travel, pretty good material quality, no complaints."<br><small>>> review posted by "Youssef Mohamed"</small></div>
+            <div class="card review p-2"><b>⭐⭐⭐ - (Samsung Galaxy Buds FE)</b><br>"Good sound and comfortable fit, but the case scratches pretty easily, still has decent value for the price compared to other brands."<br><small>>> review posted by "Nourhan Alaa"</small></div>
+            <div class="card review p-2"><b>⭐⭐⭐⭐⭐ - (JBL Flip 6)</b><br>"Sound quality is way better than I expected for the price. Bass hits hard and battery lasts me a full weekend of use. Delivery was fast too!"<br><small>>> review posted by "Ahmed Hasan"</small></div>
+            <div class="card review p-2"><b>⭐⭐⭐⭐ - (Lenovo IdeaPad Slim 3)</b><br>"Great laptop for university work, it's light, fast enough for Office and browsing, and the battery easily lasts through my classes. I do wish the screen was a bit brighter."<br><small>>> review posted by "Mariam Salem"</small></div>
+            <div class="card review p-2"><b>⭐⭐⭐⭐⭐ - (Anker PowerCore 20000mAh Power Bank)</b><br>"Charges my phone like 4 times before needing to be recharged. Great for travel, pretty good material quality, no complaints."<br><small>>> review posted by "Youssef Mohamed"</small></div>
+            <div class="card review p-2"><b>⭐⭐⭐ - (Samsung Galaxy Buds FE)</b><br>"Good sound and comfortable fit, but the case scratches pretty easily, still has decent value for the price compared to other brands."<br><small>>> review posted by "Nourhan Alaa"</small></div>
+        </div>
+    </div>
+
+    <!-- ============ CONTACT ============ -->
+    <h2 class="category-header-text" id="contact">Contact our Support</h2>
+    <form class="mb-3 support-form" onsubmit="sendSupportInquiry(event)">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="Enter your email (e.g abc@mail.com)" required/>
+        <br>
+        <label class="form-label">Support Subject</label>
+        <input type="text" class="form-control" placeholder="Enter your message/inquiry." required/>
+        <button type="submit" class="btn btn-primary mt-1">Submit</button>
+    </form>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <h2 class="category-header-text" id="newsletter">Subscribe to our Company Newsletter</h2>
+    <form class="mb-3 support-form" onsubmit="subscribeToNewspaper(event)">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="Enter your email (e.g abc@mail.com)" required/>
+        <button type="submit" class="btn btn-primary mt-1">Submit</button>
+    </form>
+
+    <!-- ============ FOOTER ============ -->
+    <div class="footer" id="footer">
+        <a href="index.html" class="navbar-item-main-text"><h1 class="text-white"><i class="fa-solid fa-shop"></i> CubMart</h1></a>
+        <div class="footer-links">
+            <span class="item-text text-white small-text">CubMart  <i class="fa-regular fa-copyright"></i> 2026</span>
+            <span><a class="item-text text-white small-text" href="#top"><i class="fa-solid fa-house"></i> Top of Page</a></span>
+            <span><a class="item-text text-white small-text" href="https://deci.eyouthbusiness.com/"><i class="fa-solid fa-link"></i> DECI</a></span>
+        </div>
+    </div>
+</body>
+</html>

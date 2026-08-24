@@ -1,0 +1,130 @@
+Explanation:
+1. BOM and its relationship to window:
+
+The Browser Object Model (BOM) gives access to the browser window and its properties, 
+like size (window.innerWidth, window.innerHeight) and control over the browser window.
+
+2. Controlling URL with location and navigating with history:
+
+window.location  : allows you to read and modify the URL. 
+
+For example, 
+
+history.pushState() can change the URL without reloading.
+
+history.back() navigates to the previous page in the session history.
+
+3. What navigator is, and the difference between BOM and DOM:
+
+navigator provides information about the browser (like name, version, language).
+
+The DOM (Document Object Model) is the structure of the webpage itself, 
+
+while the BOM is about the browser window and environment.
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><lesson1-week17></lesson1-week17></title>
+</head>
+  <style>
+   /* Style for the body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* Light blue background */
+  margin: 20px;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Style for the main heading */
+h1 {
+  color: #333366;
+  text-align: center;
+}
+
+/* Style for subheadings */
+h2 {
+  color: #555555;
+  margin-top: 40px;
+}
+
+/* Style for the list */
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+/* Style for buttons */
+button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Optional: Add a container for better layout */
+.container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+</style>
+
+  <body>
+  <h1>Today's Topics</h1>
+  <ul>
+    <li>What the BOM is, and its relationship to window</li>
+    <li>How to control the URL with location, and navigate between pages with history</li>
+    <li>What navigator is, and the difference between the BOM and the DOM</li>
+  </ul>
+
+  <h2>Demonstrations</h2>
+  <button onclick="showWindowSize()">Show Window Size (BOM)</button>
+  <br/><br/>
+  
+  <button onclick="goBack()">Go Back in History</button>
+  <br/><br/>
+  <button onclick="showNavigatorInfo()">Show Navigator Info</button>
+
+
+   <script>
+    // JavaScript code to demonstrate the concepts
+
+    // 1. BOM (Browser Object Model) and its relationship to window
+    // Accessing window properties
+    function showWindowSize() {
+      alert(`Window width: ${window.innerWidth}px, height: ${window.innerHeight}px`);
+    }
+
+
+    function goBack() {
+      // Navigate back in history
+      history.back();
+    }
+
+    // 3. What navigator is, and the difference between BOM and DOM
+    function showNavigatorInfo() {
+      alert(`Your browser: ${navigator.appName}\nLanguage: ${navigator.language}`);
+    }
+  </script>
+
+
+</body>
+</html>

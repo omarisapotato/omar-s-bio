@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Interactive Profile Card</title>
+<style>
+  #profile-card {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  #profile-card h2 {
+    margin-top: 0;
+  }
+  .highlight {
+    background-color: yellow;
+  }
+  .active {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
+  #toggleButton {
+    margin-top: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  #profile-img {
+    width: 200px;
+    height: 200px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Profile Card Structure -->
+<div id="profile-card">
+  <h2 id="name">Jane Smith</h2>
+  <img src="https://via.placeholder.com/100" alt="Profile Picture" id="profile-img" />
+  <ul>
+    <li class="info-item" style="visibility: visible;" id="location"data-info="Location: NYC">NYC</li>
+    <li class="info-item" style="visibility: visible;" id="job" data-info="Occupation: Designer">Designer</li>
+    <li class="info-item" style="visibility: visible;" id="hobbies" data-info="Hobbies: Reading, Traveling">Reading, Traveling</li>
+    <li class="info-item" style="visibility: hidden;" id="grade" data-info="Grade: 11th">Grade: 11th</li>
+    <li class="info-item" style="visibility: hidden;" id="points" data-info="Points: 0">Points: 0</li>
+    <button id="pointsIncreaser">Click to add ten points!</button>
+  </ul>
+</div>
+
+<!-- Button to trigger interactivity -->
+<button id="toggleButton">Toggle Info</button>
+
+<script>
+  let points = 0
+  // --- Task 1: DOM Navigation ---
+  const card = document.getElementById('profile-card');
+  const header = card.children[0]; // <h2>
+  const parent = header.parentElement; // <div id="profile-card">
+  const nextSibling = header.nextSibling; // may include text nodes
+  const profilePicture = document.getElementById('profile-img'); // safer
+  const infoList = profilePicture.nextElementSibling;
+  const listItems = infoList.children;
+  const nameElement = document.getElementById('name');
+  const infoItems = document.querySelectorAll('.info-item');
+
+  // Loop through info items and log their data-info attribute
+  infoItems.forEach(item => {
+    console.log('Info:', item.getAttribute('data-info'));
+  });
+
+  nameElement.textContent = 'John Doe';
+  nameElement.setAttribute('title', 'This is a user name');
+  setTimeout(() => {
+    nameElement.removeAttribute('title');
+  }, 3000);
+  nameElement.style.color = 'blue';
+  nameElement.classList.add('highlight');
+  nameElement.classList.toggle('active');
+  if (nameElement.classList.contains('highlight')) {
+    console.log('Highlight class is present.');
+  }
+
+  document.getElementById('points').style.color = 'Cyan';
+
+
+  const increasePoints = document.getElementById('pointsIncreaser');
+  increasePoints.onclick = () => {
+    points += 10;
+    updateCard();
+  }
+
+
+
+
+
+  // --- Task 5: Interactivity with Click Handler ---
+  const button = document.getElementById('toggleButton');
+  button.onclick = () => {
+    if (profilePicture.src == "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ehzvJWof1IQFUow6cvy3-Ys6mFSYnZ3JombjYjK1GQ&s=10") {
+      profilePicture.src = 'https://via.placeholder.com/100'
+    } else {
+      profilePicture.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ehzvJWof1IQFUow6cvy3-Ys6mFSYnZ3JombjYjK1GQ&s=10"
+      }
+    if (nameElement.textContent == 'John Doe') {
+      nameElement.textContent = 'Ahmed'
+    } else {
+      nameElement.textContent = 'John Doe'
+    } if (document.getElementById('location').style.visibility == 'hidden') {
+      document.getElementById('location').style.visibility = 'visible';
+      document.getElementById('job').style.visibility = 'visible';
+      document.getElementById('hobbies').style.visibility = 'visible';
+      document.getElementById('points').style.visibility = 'hidden';
+      document.getElementById('grade').style.visibility = 'hidden';
+    } else {
+      document.getElementById('location').style.visibility = 'hidden';
+      document.getElementById('job').style.visibility = 'hidden';
+      document.getElementById('hobbies').style.visibility = 'hidden';
+      document.getElementById('points').style.visibility = 'visible';
+      document.getElementById('grade').style.visibility = 'visible';
+    }
+  };
+
+  function updateCard() {
+    document.getElementById('points').textContent = `Points: ${points}`;
+    if (points >= 50) {
+      document.getElementById('points').classList.add('highlight');
+    }
+    if (document.getElementById('points').classList.contains('highlight')) {
+      console.log('Highlight Active');
+    } else {
+      console.log('Highlight Inactive')
+    }
+  }
+</script>
+
+</body>
+</html>

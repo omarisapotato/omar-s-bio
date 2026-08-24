@@ -1,0 +1,10 @@
+CubMart - File Structure
+Student Name : Omar Abdelaziz Elsayed Kishk
+
+task1-design/
+    index.html   -> Store page (HTML, CSS & Bootstrap)
+    style.css    -> Page styles (if used as a separate file)
+
+task2-logic/
+    task2.html   -> Blank shell used to run script.js
+    script.js    -> Ordering & pricing logic

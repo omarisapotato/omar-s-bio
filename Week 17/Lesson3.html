@@ -1,0 +1,182 @@
+Explanation:
+
+Writing Cookies: You specify a key and value, and optionally set attributes 
+like max-age (lifetime) and Secure.
+Reading Cookies: You parse document.cookie to retrieve cookie values by name.
+Deleting Cookies: Set the cookie with max-age=0 or an expiry date in the past.
+Attributes:
+Expires / Max-Age: control persistence.
+Secure: send only over HTTPS.
+HttpOnly: can't be set via JavaScript, to prevent XSS access.
+SameSite: restricts cross-site cookie sending.
+
+
+
+Limitations & Security:
+
+Cookies are vulnerable to XSS if not marked HttpOnly.
+Cookies can be stolen or manipulated if not secured properly.
+Modern alternatives like localStorage are easier to use and less susceptible to 
+certain attacks but lack automatic server transmission features.
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cookies: Reading, Writing, and Security</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f3;
+    padding: 30px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    color: #333366;
+    text-align: center;
+  }
+
+  .section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    width: calc(100% - 20px);
+    margin-top: 10px;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  #output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Cookies: Reading, Writing, and Security</h1>
+
+<div class="section">
+  <h2>1. Write a Cookie</h2>
+  <p>Enter a key and value to set a cookie.</p>
+  <input type="text" id="cookieKey" placeholder="Cookie Name" />
+  <input type="text" id="cookieValue" placeholder="Cookie Value" />
+  <button onclick="setCookie()">Set Cookie</button>
+</div>
+
+<div class="section">
+  <h2>2. Read a Cookie</h2>
+  <button onclick="getCookie()">Get Cookie</button>
+</div>
+
+<div class="section">
+  <h2>3. Delete a Cookie</h2>
+  <p>Enter the cookie name to delete it.</p>
+  <input type="text" id="deleteCookieKey" placeholder="Cookie Name" />
+  <button onclick="deleteCookie()">Delete Cookie</button>
+</div>
+
+<div class="section" id="cookieInfo">
+  <h2>Cookie Attributes Explanation</h2>
+  <ul>
+    <li><strong>Expires/Max-Age:</strong> Determines how long the cookie persists. If not set, cookie is a session cookie and expires when the browser closes.</li>
+    <li><strong>Secure:</strong> Cookie is only sent over HTTPS.</li>
+    <li><strong>HttpOnly:</strong> Cookie is inaccessible via JavaScript, enhancing security.</li>
+    <li><strong>SameSite:</strong> Controls whether cookies are sent with cross-site requests, preventing CSRF attacks.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Security Considerations and Modern Alternatives</h2>
+  <ul>
+    <li>Cookies are vulnerable to cross-site scripting (XSS) and cross-site request forgery (CSRF).</li>
+    <li>HttpOnly and Secure flags help mitigate some risks.</li>
+    <li>Modern alternatives include <strong>Web Storage API</strong> (localStorage and sessionStorage), which are more secure and easier to use.</li>
+    <li>Cookies are still necessary for server-side sessions and certain security features.</li>
+  </ul>
+</div>
+
+<div id="output"></div>
+
+<script>
+  // Function to set a cookie
+  function setCookie() {
+    const key = document.getElementById('cookieKey').value;
+    const value = document.getElementById('cookieValue').value;
+    if (!key || !value) {
+      alert('Please enter both key and value.');
+      return;
+    }
+    // Set cookie with attributes: expires in 7 days, Secure, HttpOnly (HttpOnly can't be set via JS, but for demo)
+    document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}; path=/; max-age=${60 * 60 * 24 * 7}; Secure`;
+    document.getElementById('output').innerText = `Cookie "${key}" set with value "${value}".`;
+  }
+
+  // Function to get a cookie by key
+  function getCookie() {
+    const key = document.getElementById('cookieKey').value;
+    if (!key) {
+      alert('Enter the cookie name to retrieve.');
+      return;
+    }
+    const cookies = document.cookie.split('; ').reduce((acc, cookie) => {
+      const [k, v] = cookie.split('=');
+      acc[decodeURIComponent(k)] = decodeURIComponent(v);
+      return acc;
+    }, {});
+    const value = cookies[key];
+    if (value) {
+      document.getElementById('output').innerText = `Cookie "${key}" has value "${value}".`;
+    } else {
+      document.getElementById('output').innerText = `Cookie "${key}" not found.`;
+    }
+  }
+
+  // Function to delete a cookie
+  function deleteCookie() {
+    const key = document.getElementById('deleteCookieKey').value;
+    if (!key) {
+      alert('Enter the cookie name to delete.');
+      return;
+    }
+    // To delete, set cookie with past expiry
+    document.cookie = `${encodeURIComponent(key)}=; path=/; max-age=0`;
+    document.getElementById('output').innerText = `Cookie "${key}" deleted (if it existed).`;
+  }
+
+  // Optional: Function to list all cookies
+  function listCookies() {
+    const cookies = document.cookie;
+    document.getElementById('output').innerText = `All Cookies: ${cookies}`;
+  }
+</script>
+
+</body>
+</html>
