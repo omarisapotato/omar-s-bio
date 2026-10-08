@@ -192,14 +192,50 @@ ul {
     border-radius: 5px;
 }
 
+/* --- MOBILE REFINEMENTS (Screens under 768px) --- */
 @media (max-width: 768px) {
+    body {
+        background-size: 20rem;
+    }
+
+    .container {
+        width: 95vw;
+        padding: 1.5rem;
+    }
+
+    .container-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container-card {
+        width: 100%;
+        align-items: center;
+    }
+
+    ul {
+        justify-content: center;
+    }
+
     .container-cat {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas:
-    "sleepychair stare armbite starewitharm"
-    "greyarmbite fallingarmbite"
-    "dragonarmbite dragonarmbite dragonarmbite dragonarmbite"
-    "home-button home-button home-button home-button";
-}
+        width: 95vw;
+        padding: 1.5rem; 
+        margin: 1.5rem auto;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: auto;
+        grid-template-areas:
+            "sleepychair stare"
+            "armbite starewitharm"
+            "greyarmbite fallingarmbite"
+            "dragonarmbite dragonarmbite"
+            "home-button home-button";
+    }
+
+    .container-cat-starewitharm {
+        border-top-right-radius: 0;
+    }
+    .container-cat-stare {
+        border-top-right-radius: 0.9375rem;
+    }
 }
