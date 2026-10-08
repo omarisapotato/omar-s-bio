@@ -39,7 +39,7 @@ body {
 .container-content-pfp {
     height: 7.625rem;
     width: 7.625rem;
-    border-radius: 50%;
+    border-radius: 30%;
     padding: 0.4375rem;
     border: 0.4375rem solid black;
 }
@@ -60,7 +60,7 @@ body {
 
 button {
     border: 0.125rem solid black;
-    border-radius: 0.3125rem;
+    border-radius: 20%;
     box-shadow: 0.1em 0.1em 0.1em 0.1em black;
     width: 7.5rem;
     height: 3.125rem;
