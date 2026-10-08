@@ -182,18 +182,12 @@ ul {
     transform: scale(1.2);
 }
 .btn {
-  /* Layout & Display */
-  display: inline-block;
-  
-  /* Typography */
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  text-align: center;
-  text-decoration: none;
-  text-wrap: nowrap;
-
-
-  /* Borders & Background */
-  cursor: pointer;
-  background-color: #0d6efd;
-  border-radius: 5px;
+    display: inline-block;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    text-wrap: nowrap;
+    cursor: pointer;
+    background-color: #0d6efd;
+    border-radius: 5px;
 }
