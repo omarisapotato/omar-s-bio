@@ -191,3 +191,15 @@ ul {
     background-color: #0d6efd;
     border-radius: 5px;
 }
+
+@media (max-width: 768px) {
+    .container-cat {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+    "sleepychair stare armbite starewitharm"
+    "greyarmbite fallingarmbite"
+    "dragonarmbite dragonarmbite dragonarmbite dragonarmbite"
+    "home-button home-button home-button home-button";
+}
+}
